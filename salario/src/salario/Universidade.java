@@ -6,40 +6,40 @@ public class Universidade {
 	private ArrayList<Funcionario> funcionarios;
 	
 	Universidade() {
-		funcionarios = new ArrayList<>(); //criando o array
+		funcionarios = new ArrayList<>(); 
 	}
 	
-	public void addFuncionario(Funcionario funcionario) { //metodo adicionando funcionario 
-		funcionarios.add(funcionario);//adicionando no array 
+	public void addFuncionario(Funcionario funcionario) { 
+		funcionarios.add(funcionario);
 	}
 	
-	public void removerFuncionario(String nome) {//metodo removendo funcionario
-		for(Funcionario f : funcionarios) {//percorrendo todo o array
-			if(f.getNome() == null) {//se o nome q procura for igual a nulo
-				System.out.println("Funcionario nao existe");//significa q o funcionario nao existe
+	public void removerFuncionario(String nome) {
+		for(Funcionario f : funcionarios) {
+			if(f.getNome() == null) {
+				System.out.println("Funcionario nao existe");
 				return;
-			}// se nao
-			else if(f.getNome().equals(nome)){//e novamente procurado o nome que desejas no vetor
-				funcionarios.remove(f);//e eh removido
+			}
+			else if(f.getNome().equals(nome)){
+				funcionarios.remove(f);
 				return;
 			}
 		}
 	}
 	
-	public void distribuirBonus(float valor) {//metodo distribuir bonos 
-		double total = valor/(funcionarios.size()); //atribuindo um novo atributo, q ira pegar o valor do bonus
-		// e dividir com todos os funcionarios
-		for(Funcionario f : funcionarios) {//percorrendo todo o array
-			f.adicionarBonus(total);//e adicionando o valor
+	public void distribuirBonus(float valor) {/
+		double total = valor/(funcionarios.size()); 
+
+		for(Funcionario f : funcionarios) {
+			f.adicionarBonus(total);
 		}
 	}
 
-	public String toString() {//to string
+	public String toString() {
 		String s = "";
-		for(Funcionario f: funcionarios) { //percorrendo todo o array
-			s += f.toString() + "\n";//e pegando cada funcionario, atribuindo os toString das outras classe e pulando uma linha
+		for(Funcionario f: funcionarios) {
+			s += f.toString() + "\n";
 		}
-		return s;//retornando o que foi citado acima
+		return s;
 	}
 	
 	//set e get

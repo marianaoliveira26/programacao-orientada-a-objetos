@@ -7,10 +7,9 @@ public class Note {
 	Note(String title, String contenet) {
 		this.title = title;
 		this.contenet = contenet;
-		//construtor
 	}
 	
-	public String toString() {//a toString pra sair lindo
+	public String toString() {
 		return this.getTitle() + ":" + this.getContenet();
 	}
 

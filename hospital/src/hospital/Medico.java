@@ -5,35 +5,35 @@ import java.util.Collection;
 
 public class Medico implements IMedico {
 	
-	private String id, especialidade; //nome e especialidade do medico
-	private HashMap<String, IPaciente> pacientes; //hashmap pra implementar os pacientes
-	
-	Medico(String id, String especialidade) { //construtor passando o nome e a especialidade
+	private String id, especialidade; 
+	private HashMap<String, IPaciente> pacientes; 
+
+	Medico(String id, String especialidade) { 
 		this.id = id;
 		this.especialidade = especialidade;
-		pacientes = new HashMap<String, IPaciente>(); //definindo o hashmap
+		pacientes = new HashMap<String, IPaciente>(); 
 	}
 
 	@Override
-	public String getId() { //get do nome do medico
+	public String getId() {
 		return id;
 	}
 
 	@Override
-	public void addPaciente(IPaciente paciente) { //adicionando o paciente no hospital
-		pacientes.put(paciente.getId(),(IPaciente) paciente); //adicionando o nome do caba em paciente
+	public void addPaciente(IPaciente paciente) { 
+		pacientes.put(paciente.getId(),(IPaciente) paciente); 
 	}
 
 	@Override
-	public void removerPaciente(String idPaciente) { //removendo o homi
-		IPaciente paciente = pacientes.get(idPaciente); //mecorrendo o hahsmap de pacientes
-		if(paciente == null) { //vendo se o pacienete eh nulo
-			System.out.println("Paciente nao existe");//ou seja nao existe
+	public void removerPaciente(String idPaciente) { 
+		IPaciente paciente = pacientes.get(idPaciente); 
+		if(paciente == null) { 
+			System.out.println("Paciente nao existe");
 			return;
 		}
 		else {//senao
-			pacientes.remove(idPaciente); //removendo o paciente da classe Paciente
-			pacientes.remove(getId());//removendo o paciente do hahsmap
+			pacientes.remove(idPaciente); 
+			pacientes.remove(getId());
 			return;
 		}
 	}
@@ -43,11 +43,11 @@ public class Medico implements IMedico {
 		return null;
 	}
 	
-	public String toString() {//printar do jeito lindo lá
+	public String toString() {
 		String s = "";
 		s += "Medico: " + this.id + ", epecialidade: " + this.especialidade + ", pacientes: [";
-		for(IPaciente paciente : pacientes.values()) {//percorrendo o hahsmap dos pacientes
-			s += paciente.getId() +  " ";//q eh pra adicionar do jeito q pede (com os pacientes na frente)
+		for(IPaciente paciente : pacientes.values()) {/ pacientes
+			s += paciente.getId() +  " ";
 		}
 		return s + "]";
 	}

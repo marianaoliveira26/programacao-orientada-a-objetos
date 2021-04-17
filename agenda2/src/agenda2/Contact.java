@@ -11,12 +11,12 @@ public class Contact {
 		this.fones = new ArrayList<Fone>();
 	}
 
-	public void addFone(String label, String number) {//meotodo adicionando o fone
-		if(Fone.validate(number) == false) { //vendo se o numero eh numero pra ser telefonado
-			System.out.println("fone invalido"); //se nao, não eh um numero telefonável
+	public void addFone(String label, String number) {
+		if(Fone.validate(number) == false) {
+			System.out.println("fone invalido"); 
 			return;
-		} //caso o contrario
-		fones.add(new Fone(label, name));//sera adicionando o nome e a operadora no array de fones
+		}
+		fones.add(new Fone(label, name));
 	}
 	
 	public void rmFone(String name, int index) {
@@ -28,7 +28,7 @@ public class Contact {
 	}
 
 	@Override
-	public String toString() { //printar do jeito que pede
+	public String toString() {
 		String resultado ="- " + this.name;
 		if(fones.size() > 0) {
 			resultado += " ";

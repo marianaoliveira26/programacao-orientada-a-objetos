@@ -5,15 +5,14 @@ public class ContaCorrente extends Conta {
 	
 	public ContaCorrente(int id, String idCliente) {
 		super(id, idCliente);
-		this.type = "CC";//defininco q a conta eh corrente
+		this.type = "CC";
 	}
 	
 	@Override
-	public void atualizacaomensal() {//metodo para atualizar
-		this.setSaldo(this.getSaldo() - tarifamensal);//do saldo atual, eh diminuido -20 {lá da linha 4}
+	public void atualizacaomensal() {
+		this.setSaldo(this.getSaldo() - tarifamensal);
 	}
 	
-	//get e set
 	public float getTarifamensal() {
 		return tarifamensal;
 	}

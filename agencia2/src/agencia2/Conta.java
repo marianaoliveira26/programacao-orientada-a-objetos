@@ -6,56 +6,55 @@ public class Conta {
 	protected String idCliente;//nome do caba 
 	protected String type; //tipo de conta
 	
-	public Conta(int id, String idCliente) { //construtor
+	public Conta(int id, String idCliente) {
 		this.id = id;
 		this.saldo = 0;
 		this.idCliente = idCliente;
 		this.type = "";
 	}	
 	
-	public void sacar(float value) {//metodo sacar
-		if(this.type.equals("CP")) {//vendo se a cconta é a poupanca
-			if((this.saldo-value) > 0) {//se for e o saldo - valor for mair q 0
-				this.setSaldo(getSaldo() - value); //entao é feito o saque
+	public void sacar(float value) {
+		if(this.type.equals("CP")) {
+			if((this.saldo-value) > 0) {
+				this.setSaldo(getSaldo() - value); 
 			} 
-			else {//se nao
-				System.out.println("Saldo insuficiante \n");//nao eh feito o saque porque o saldo é menor q o esperado
+			else {
+				System.out.println("Saldo insuficiante \n");
 			}
 		}
-		else if(this.type.equals("CC")) {//vendo se a conta eh a corrente
-			this.setSaldo(this.getSaldo() - value);//se for, ai eh realiazado o saque
+		else if(this.type.equals("CC")) {
+			this.setSaldo(this.getSaldo() - value);
 		}
 	}
 	
-	public void depositar(float value) {//metodo depositar
-		if(this.type.equals("CP")) {//vendo se a conta eh poupanca
-			this.setSaldo(this.getSaldo() + value);//se for ai eh feito o o deposito
+	public void depositar(float value) {
+		if(this.type.equals("CP")) {
+			this.setSaldo(this.getSaldo() + value);
 		}
-		else if(this.type.equals("CC")) { //vendo se a onta eh corrente
-			this.setSaldo(this.getSaldo() + value);//se for ai eh feito o deposito
+		else if(this.type.equals("CC")) { 
+			this.setSaldo(this.getSaldo() + value);
 		}
 	}
 	
 	public void transferir(Conta other, float value) { 
-		//metodo transferir, passando uma conta e o valor
-		other.setSaldo(this.getSaldo() + value); //o valor da outra conta, somando com o valor passado pela primeira conta
+		other.setSaldo(this.getSaldo() + value);
 	}
 	
-	public void atualizacaomensal() { //metodo para atualizar a conta {vulgo saldo}
-		if(this.type.equals("CC")) { //vendo se a conta é a conrrente
-			this.setSaldo(getSaldo() - 20); //se for, é dimunuido 20 reais do saldo atual
+	public void atualizacaomensal() { 
+		if(this.type.equals("CC")) { 
+			this.setSaldo(getSaldo() - 20); 
 		} 
-		else if(this.type.equals("CP")){// se a conta for a poupanca
-			float novosaldo = (this.saldo * 1)/100;//eh feito a porcentagem pra saber quanto lucrou
-			this.setSaldo(this.getSaldo() + novosaldo);//e adicionado ao saldo atual
+		else if(this.type.equals("CP")){
+			float novosaldo = (this.saldo * 1)/100;
+			this.setSaldo(this.getSaldo() + novosaldo);
 		}
 	}
 	
 	@Override
-	public String toString() {//metodo toString, printar bonito lá
+	public String toString() {
 		return "[" + this.getId() + ":" + this.getIdCliente() + ":" + this.getSaldo() + ":" + this.getType() + "]";
 	}
-	//get e set
+
 
 	public int getId() {
 		return id;
@@ -88,6 +87,4 @@ public class Conta {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
 }

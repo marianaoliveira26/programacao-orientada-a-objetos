@@ -23,13 +23,7 @@ public class Main {
 		hospital.vincular("Dr. Snif", "Silva");
 		hospital.vincular("Dr. Facada", "goku");
 		System.out.println(hospital);
-		
-		//brincando com a main
-		System.out.println("***");
-		hospital.removerPaciente("Alvis");
-		hospital.addPaciente(new Paciente("Bee Gees", "Nao para de dancar musicas dos anos 70"));
-		hospital.addMedico(new Medico("Stayin Alive", "Bee Gees"));
-		System.out.println(hospital);
+
 	}
 
 }

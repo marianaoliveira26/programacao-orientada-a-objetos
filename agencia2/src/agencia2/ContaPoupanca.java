@@ -5,14 +5,13 @@ public class ContaPoupanca extends Conta {
 
 	public ContaPoupanca(int id, String idCliente) {
 		super(id, idCliente);
-		this.type = "CP"; //definindo q a conta eh poupanca
+		this.type = "CP"; 
 	}
 	
 	@Override
-	public void atualizacaomensal() {//metodo de atualizacao mensal
-		float novosaldo = (this.saldo * 1)/100;//eh vendo q valor vai da porque estava correndo juros
-		this.setSaldo(this.getSaldo() + novosaldo);//e adicionado ao valor atual
-	}
+	public void atualizacaomensal() {
+		float novosaldo = (this.saldo * 1)/100;
+		this.setSaldo(this.getSaldo() + novosaldo);	}
 	
 	//set e get
 

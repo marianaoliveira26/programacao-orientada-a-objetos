@@ -12,22 +12,21 @@ public class User {
 		notas = new HashMap<String, Note>();
 	}
 	
-	public void addNote(String title, String content) { //adicioanando as notas
-		Note nota = new Note(title, content);//criando uma nova nota
+	public void addNote(String title, String content) { 
+		Note nota = new Note(title, content);
 		notas.put(title, nota);
 		notas.put(content, nota);
-		//adicioando no hashmap
 	}
 	
-	public void rmNote(int index) {//removendo as notas
-		for(int i =0; i <= notas.size(); i++) {//percorrendo o hahsmap
-			if(i == index) {//vendo se eh a q o caba quer
-				this.notas.remove(index);//removendo
+	public void rmNote(int index) {
+		for(int i =0; i <= notas.size(); i++) {
+			if(i == index) {
+				this.notas.remove(index);
 			}
 		}
 	}
 
-	public String toString() { //tostring pra ficar lindo
+	public String toString() { 
 		return "Usuario: " + this.getUsername() + " " + this.getPassword();
 	}
 	

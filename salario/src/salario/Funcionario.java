@@ -2,12 +2,12 @@ package salario;
 
 public abstract class Funcionario {
 	protected String nome;
-	protected int max_diarias; //maximo de dias q pode receber
-	protected int qtd_diarias; //maximo de dirias q ja recebeu
-	protected double bonus; //qnt de bonu recebeu
+	protected int max_diarias; 
+	protected int qtd_diarias; 
+	protected double bonus; 
 	protected double salario;
 	
-	Funcionario(String nome, int max_diarias) { //metodo contrutor 
+	Funcionario(String nome, int max_diarias) { 
 		this.nome = nome;
 		this.max_diarias = max_diarias;
 		this.qtd_diarias = 0;
@@ -15,24 +15,22 @@ public abstract class Funcionario {
 		this.salario = 0;
 	}
 
-	public void adicionarDiaria() { //metodo adicionar diaria 
-		//vendo se a quantidade maxima de diras eh maior que a quantidade de diaria do caba
-		if(this.getQtd_diarias() <= this.getMax_diarias()) { //senao for, então pode ter diaira
-			this.setSalario(this.getSalario() + 100); //adicionando 100 ao salario
-			qtd_diarias++; //e aumetando a quantidade de diarias
+	public void adicionarDiaria() { 
+		if(this.getQtd_diarias() <= this.getMax_diarias()) { 
+			this.setSalario(this.getSalario() + 100); 
+			qtd_diarias++; 
 		}
-		else {//senao, significa que a diaria eh maior que a permitida 
+		else {
 			System.out.println("Limite de diarias atigindas");
 		}
 	}
 	
-	public void adicionarBonus(double bonus) {//metodo para adicionar bonus
-		this.setSalario(this.getSalario() + bonus ); //adicionando o bonus ao salario
+	public void adicionarBonus(double bonus) {
+		this.setSalario(this.getSalario() + bonus ); 
 	}
 	
-	abstract double calcSalario(); //metodo abstrato para calcular o salario
-	
-	//set e get
+	abstract double calcSalario();
+
 	public String getNome() {
 		return nome;
 	}

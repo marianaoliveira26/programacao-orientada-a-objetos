@@ -9,61 +9,55 @@ public class Contact {
 	private boolean starred;
 	private ArrayList<Fone> fones;
 	
-	
-	public Contact(String name) { //metodo construtor 
+	[ 
+	public Contact(String name) { 
 		this.name = name;
-		this.starred = false; //o favorito
-		this.fones = new ArrayList<Fone>(); //inicalizando o array
+		this.starred = false;
+		this.fones = new ArrayList<Fone>(); 
 	}
 	
 	public void addFone(String label, String number) { 
-		//meotodo para adioconar o fone
-		Fone f = new Fone(label, number); //criando um novo fone
-		if(Fone.validate(number) == false) { //vendo se eh validado
-			System.out.println("numero invalido"); //vendo que eh invalio o numero
+		Fone f = new Fone(label, number); 
+		if(Fone.validate(number) == false) { 
+			System.out.println("numero invalido"); 
 		}
-		else {//se nao, eh valido o numero 
-			this.fones.add(f); //adicionando esse fone
+		else {
+			this.fones.add(f); 
 		}
 	}
 	
-	public void rmFone(int index) { //meotodo para remover o fone
-		for(int i =0; i < fones.size(); i++) { //o i irá percorrer todo os numeros
-			if(i == index) { // se o i for igual ao numero que quero remover
-				this.fones.remove(index);//ira remover do fone
+	public void rmFone(int index) { 
+		for(int i =0; i < fones.size(); i++) { 
+			if(i == index) { 
+				this.fones.remove(index);
 			}
-			else { //se nao
-				System.out.println("esse fone nao exitse"); //significa que o fone nao existe
+			else {
+				System.out.println("esse fone nao exitse"); 
 			}
 		}
 	}
 	
 	public void setBookmark(boolean value) {
-		//metodo para favoritar
 		this.starred = value;
-		//se o que quero for igual ao valor{no caso true}, era favoritar
 	}
 	
 	@Override
 	public String toString() {
-		String resul = ""; //definindo uma strin para poder printar
-		if(this.isStarred()) { //se os isStarred for true, signifca que é favorito o numero
-			resul += "@ " +this.name;//então adicionara o @ na frente do nome
+		String resul = ""; 
+		if(this.isStarred()) { 
+			resul += "@ " +this.name;
 		}
 		else {// senoa
-			resul += "- " + this.name;//siginifca que não eh favorito e ira printar "-" na frente
+			resul += "- " + this.name;
 		}
-		if(fones.size() > 0) { //olhando todo o fone
-			for(int i = 0; i < fones.size(); i++) {//pecorrendo o fone, pra ver se não tem o mesmo fone da mesma pessoa
+		if(fones.size() > 0) {
+			for(int i = 0; i < fones.size(); i++) {
 				resul += "["+ i + ":" +this.fones.get(i).toString() + "]";
-				//se sim, ira aparecer 0 e 1 na frente {caso tenha dois fones}
 			}
 		}
-		return resul; //imprindo tudo lindo do jieto q pede o exercicio
+		return resul;
 	}
-	
-	//metodo get e sets
-	
+		
 	public String getName() {
 		return name;
 	}
@@ -73,9 +67,7 @@ public class Contact {
 	}
 	
 	public Boolean isStarred() {
-		//aqui é o get, porque retorna, no caso, o true, definido lá em cima
 		return starred;
-		//pra poder ser favorito 
 	}
 	
 	public void setStarred(boolean starred) {

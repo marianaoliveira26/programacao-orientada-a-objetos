@@ -7,12 +7,11 @@ public class Agenda {
 	private ArrayList<Contact> contatos;
 	
 	public Agenda() {
-		contatos = new ArrayList<Contact>(); //criando o array
+		contatos = new ArrayList<Contact>(); 
 	}
 
 	@Override
 	public String toString() {
-		//pra imprimir do jeito que pede
 		String s = "\n";
 		for(int i = 0; i < contatos.size(); i++) {
 			Contact c = contatos.get(i);
@@ -21,59 +20,58 @@ public class Agenda {
 		return s;
 	}
 
-	public void addContact(String name, List<Fone> fones) { //metodo para adicionar o contato
-		Contact cont = getContato(name); //procurando o nome do caba
-		if(cont == null) { //se naõ existir
-			cont = new Contact(name); //vai criar um novo fone
-			for(Fone f : fones){ //percorrendo a lsit de fone
-				cont.addFone(f.getLabel(),f.getNumber()); //criando um contatoc com a operadora e o numero
+	public void addContact(String name, List<Fone> fones) {
+		Contact cont = getContato(name);
+		if(cont == null) { 
+			cont = new Contact(name); 
+			for(Fone f : fones){ 
+				cont.addFone(f.getLabel(),f.getNumber()); 
 			}
-			contatos.add(cont); //adicionando na no arraylist
-		} else { //se o contato já existir
-			for(Fone f : fones) { //vai percorrer
-				cont.addFone(f.getLabel(), f.getNumber()); // e adicionar uma nova operadora e um novo numero
+			contatos.add(cont); 
+		} else { 
+			for(Fone f : fones) { 
+				cont.addFone(f.getLabel(), f.getNumber()); 
 			}
 		}
 	}
 
-	public boolean rmContact(String name) { //metodo para remover o contato
-		Contact contat = getContato(name); //procurando o nome do rapaz
-		if(contat == null) {//se for nulo, não existe
-			System.out.println("o contato nao existe"); //e vai isso
+	public boolean rmContact(String name) { 
+		Contact contat = getContato(name); 
+		if(contat == null) {
+			System.out.println("o contato nao existe"); 
 			return false;
-		} //senao
-		contatos.remove(contat);// o contato eh removido
+		} 
+		contatos.remove(contat);
 		return true;
 	}
 	
-	private int findContact(String name) { //meotod para procuraar o nome que desejas
-		for(int i = 0 ; i < contatos.size(); i++){ //pecorrendo todos os contatos
-			Contact c = contatos.get(i); // criando uma varial para procurar o nome
-			if(c.getName().equals(name)){//se o nome for igual ao nome que deseja procurar
-				return i;//ira retornar o nome de quem procura
+	private int findContact(String name) {
+		for(int i = 0 ; i < contatos.size(); i++){ 
+			Contact c = contatos.get(i); 
+			if(c.getName().equals(name)){
+				return i;
 			}
 		}
-		return -1;//fazendo comm que procure em todo os contatos
+		return -1;
 	}
 	
-    public ArrayList<Contact> search(String label){ //metodo para pesquisar
-    	//metodo para pesquisar só contatos especificos, que irá adicionar em outro array
-        ArrayList<Contact> pesquisar = new ArrayList<Contact>(); //criando um novo array da pesquisa 
-        for(Contact cont : contatos){ //percorrrendo todos os contatos
-            if(cont.toString().indexOf(label) != -1) //se o que desejas for achado
-                pesquisar.add(cont); //sera adicionado no array
+    public ArrayList<Contact> search(String label){ 
+        ArrayList<Contact> pesquisar = new ArrayList<Contact>();
+        for(Contact cont : contatos){
+            if(cont.toString().indexOf(label) != -1) 
+                pesquisar.add(cont); 
         }
-		if(pesquisar.size()>0) //pesquisando todos os contatos que o caba queira procurar
-			return pesquisar; //retornando os contatos
+		if(pesquisar.size() > 0)
+			return pesquisar; 
         else
-			return null; //ou nada, se não for achado
+			return null; 
     }
     
 
-	public Contact getContato(String nome) { //meotodo para pesquisar o nome
-		for(Contact c : contatos){ //percorrendo o array
-			if(nome.equals(c.getName())){ //se o nome que desejas for igual
-				return c;//ira retornar esse nome
+	public Contact getContato(String nome) { 
+		for(Contact c : contatos){ 
+			if(nome.equals(c.getName())){ 
+				return c;
 			}
 		}
 		return null;
@@ -83,11 +81,11 @@ public class Agenda {
 		this.contatos = contato;
 	}
 
-	public void rmFone(String name, int index) { //metodo para remover o contato
-		Contact c = getContato(name); //criando uma variavel para procurar esse contato
-		if(c != null) //se ese contato exitir
-			c.rmFone(name, index); //sera removido
-		else//senao
-			System.out.println("Contato não existente");//o contato nao existe 
+	public void rmFone(String name, int index) { 
+		Contact c = getContato(name); 
+		if(c != null) 
+			c.rmFone(name, index);
+		else
+			System.out.println("Contato não existente");
 	}
 }
